@@ -1,32 +1,33 @@
-# neural_network_classification
+## Neural network classification
 
-Урок на youtube 
-https://www.youtube.com/watch?v=KL-zI-2Ifrs
+### Честно стырено здесь.
+Описание на [youtube](https://www.youtube.com/watch?v=KL-zI-2Ifrs)
 
-1.
-Скачиваем архив набора цветов "flower_photos.tgz" от сюда http://download.tensorflow.org/example_images/flower_photos.tgz 
-и распаковываем к примеру в /home/denis/flower_photos/
-2.
-Устанавливаем tensorflow v1.15
-pip install tensorflow==1.15
+### Installation
+#### 1.
+Скачиваем архив цветов от сюда ["flower_photos.tgz"](http://download.tensorflow.org/example_images/flower_photos.tgz)
+и распаковываем к примеру в /home/user/flower_photos/
+#### 2.
+Устанавливаем tensorflow v1.15 
+pip install tensorflow==1.15 
 При установки удалит другие версии tensorflow-2.1.0 если установлены!
-3.
+#### 3.
 Скрипт "retrain.py" дообучения моделей можно взять отсюда:
-https://raw.githubusercontent.com/tensorflow/hub/r0.1/examples/image_retraining/retrain.py
-4.
+["retrain.py"](https://raw.githubusercontent.com/tensorflow/hub/r0.1/examples/image_retraining/retrain.py)
+#### 4.
 Запускаем скрипт для обучения нашей сети указав путь до наших цветочков.
-python retrain.py --image_dir /home/denis/flower_photos
-5.
+python retrain.py --image_dir /home/user/flower_photos
+#### 5.
 Создаем скрипт "label_image.py" код берем от сюда. Это скрипт будет распозновать неопознаные цветочки
-https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/label_image/label_image.py
-6.
-Запускаем разпознаение неопознаного цветочка при помощи команды указав путь до /home/denis/flower_photos/recognition/12345.jpg
+["label_image.py"](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/label_image/label_image.py)
+#### 6.
+Запускаем разпознаение неопознаного цветочка при помощи команды указав путь до /home/user/flower_photos/recognition/12345.jpg
 python label_image.py \
  --graph=/tmp/output_graph.pb \
   --labels=/tmp/output_labels.txt \
   --input_layer=Placeholder \
   --output_layer=final_result \
-  --image /home/denis/flower_photos/recognition/12345.jpg
+  --image /home/user/flower_photos/recognition/12345.jpg
 
 или так
 тюльпан
