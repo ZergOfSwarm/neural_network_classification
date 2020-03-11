@@ -4,24 +4,18 @@
 Описание на [youtube](https://www.youtube.com/watch?v=KL-zI-2Ifrs)
 
 ### Installation
-#### 1.
-Скачиваем архив цветов от сюда ["flower_photos.tgz"](http://download.tensorflow.org/example_images/flower_photos.tgz)
+#### 1. Скачиваем архив цветов от сюда ["flower_photos.tgz"](http://download.tensorflow.org/example_images/flower_photos.tgz)
 и распаковываем к примеру в /home/user/flower_photos/
-#### 2.
-Устанавливаем tensorflow v1.15 
+#### 2. Устанавливаем tensorflow v1.15 
 pip install tensorflow==1.15 
 При установки удалит другие версии tensorflow-2.1.0 если установлены!
-#### 3.
-Скрипт "retrain.py" дообучения моделей можно взять отсюда:
+#### 3. Скрипт "retrain.py" дообучения моделей можно взять отсюда:
 ["retrain.py"](https://raw.githubusercontent.com/tensorflow/hub/r0.1/examples/image_retraining/retrain.py)
-#### 4.
-Запускаем скрипт для обучения нашей сети указав путь до наших цветочков.
+#### 4. Запускаем скрипт для обучения нашей сети указав путь до наших цветочков.
 python retrain.py --image_dir /home/user/flower_photos
-#### 5.
-Создаем скрипт "label_image.py" код берем от сюда. Это скрипт будет распозновать неопознаные цветочки
+#### 5. Создаем скрипт "label_image.py" код берем от сюда. Это скрипт будет распозновать неопознаные цветочки
 ["label_image.py"](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/label_image/label_image.py)
-#### 6.
-Запускаем разпознаение неопознаного цветочка при помощи команды указав путь до /home/user/flower_photos/recognition/12345.jpg
+#### 6. Запускаем разпознаение неопознаного цветочка при помощи команды указав путь до /home/user/flower_photos/recognition/12345.jpg
 python label_image.py \
  --graph=/tmp/output_graph.pb \
   --labels=/tmp/output_labels.txt \
