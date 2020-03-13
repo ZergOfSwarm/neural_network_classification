@@ -15,6 +15,12 @@ pip install tensorflow==1.15
 ["скрипт retrain"](https://github.com/tensorflow/hub/tree/master/examples/image_retraining)
 #### 4. Запускаем скрипт для обучения нашей сети указав путь до наших цветочков.
 python retrain.py --image_dir /home/user/flower_photos
+
+Эта команда создаст 2 файла в /tmp/
+output_graph.pb
+output_labels.txt
+
+Что бы не проделывать каждый раз эту команду, которая затравичает много времени на обучение нашей сети, просто сохрани эти 2 файла гденибудь на компе.
 #### 5. Создаем скрипт "label_image.py" код берем от сюда. Это скрипт будет распозновать неопознаные цветочки
 ["raw код label_image.py"](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/examples/label_image/label_image.py)
 или тут 
@@ -29,9 +35,13 @@ python label_image.py \
 
 или так
 тюльпан
-python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/denis/flower_photos/recognition/12345.jpg
+python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/user/flower_photos/recognition/12345.jpg
 
-PS - папку "recognition" сохранить к примеру здесь /home/denis/flower_photos/recognition в том месте где распакован архив "flower_photos.tgz".
+или так (при условии, что output_graph.pb и output_labels.txt сохранены в /home/user/flower_photos/output/)
+
+python label_image.py --graph=/home/user/flower_photos/output/output_graph.pb --labels=/home/user/flower_photos/output/output_labels.txt --input_layer=Placeholder --output_layer=final_result --image /home/user/flower_photos/recognition/12345.jpg
+
+PS - папку "recognition" сохранить к примеру здесь /home/user/flower_photos/recognition в том месте где распакован архив "flower_photos.tgz".
 
 В итоге
 tulips 0.9987852
@@ -41,7 +51,7 @@ daisy 9.372772e-05
 dandelion 2.960437e-06
 
 роза
-python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/denis/flower_photos/recognition/54321.jp
+python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/user/flower_photos/recognition/54321.jp
 
 В итоге
 roses 0.8905987
@@ -51,7 +61,7 @@ daisy 0.023395414
 dandelion 0.006326692
 
 маргаритка/daisy
-python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/denis/flower_photos/recognition/4.jpg
+python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/user/flower_photos/recognition/4.jpg
 
 В итоге
 daisy 0.9956761
@@ -61,7 +71,7 @@ roses 0.000459438
 tulips 0.00021229866
 
 одуванчик/dandelion
-python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/denis/flower_photos/recognition/2.jpg
+python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/user/flower_photos/recognition/2.jpg
 
 В итоге
 dandelion 0.9823454 / dandelion 0.9990777 (для 2a.jpg)
@@ -71,7 +81,7 @@ tulips 7.8642726e-05
 roses 6.200551e-05
 
 
-python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/denis/flower_photos/recognition/1.jpeg
+python label_image.py \--graph=/tmp/output_graph.pb \--labels=/tmp/output_labels.txt \--input_layer=Placeholder \--output_layer=final_result \--image /home/user/flower_photos/recognition/1.jpeg
 
 sunflowers 0.67337984 / sunflowers 0.9918658 (для 1a.jpeg)
 daisy 0.26449472
