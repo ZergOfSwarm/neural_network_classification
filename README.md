@@ -11,6 +11,8 @@ pip install tensorflow==1.15
 При установки удалит другие версии tensorflow-2.1.0 если установлены!
 #### 3. Скрипт "retrain.py" дообучения моделей можно взять отсюда:
 ["retrain.py"](https://raw.githubusercontent.com/tensorflow/hub/r0.1/examples/image_retraining/retrain.py)
+или
+["retrain.py"](https://github.com/tensorflow/hub/tree/master/examples/image_retraining)
 #### 4. Запускаем скрипт для обучения нашей сети указав путь до наших цветочков.
 python retrain.py --image_dir /home/user/flower_photos
 #### 5. Создаем скрипт "label_image.py" код берем от сюда. Это скрипт будет распозновать неопознаные цветочки
