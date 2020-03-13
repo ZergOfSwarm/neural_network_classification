@@ -17,7 +17,9 @@ pip install tensorflow==1.15
 python retrain.py --image_dir /home/user/flower_photos
 
 Эта команда создаст 2 файла в /tmp/
+
 output_graph.pb
+и
 output_labels.txt
 
 Что бы не проделывать каждый раз эту команду, которая затравичает много времени на обучение нашей сети, просто сохрани эти 2 файла гденибудь на компе.
