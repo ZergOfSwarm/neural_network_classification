@@ -1,0 +1,15 @@
+$sst=gg("flowers.array"); # Получаем масив из нейросети
+
+$sst = str_replace("'", '"', $sst); # Приводим к нужному виду, для работы в дальнейшем.
+$arr = json_decode($sst, true);
+arsort($arr); # сортировка по убыванию значению
+array_splice($arr,1);
+#var_dump($arr); 
+$key_zerg = key($arr); # Получаем наименование ключа из массива к примеру "роза".
+#echo $key_zerg;
+$volume_zerg = $arr[$key_zerg]; # Получаем значение ключа 
+#echo $volume_zerg;
+$rounding = number_format($volume_zerg, 3, '.', ''); # Округляем значение до 3-го знака.
+setGlobal('flowers.name',$key_zerg);
+setGlobal('flowers.probability',$volume_zerg);
+say('На фото, изображение "'.$key_zerg. '", с вероятностью = '. $rounding . '%');
