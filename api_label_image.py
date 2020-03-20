@@ -149,7 +149,7 @@ if __name__ == "__main__":
   ip_mojordomo = '192.168.18.12' # Здесь прописываем "IP" MajoDomo
   name_of_object = 'flowers' # Здесь прописываем имя объекта в который пропишем результат
   property_of_object_1 = 'name' # Имя распознанного объекта
-  property_of_object_2 = 'probability' # Значение вероятности с которым фото было расспознано.
+  property_of_object_2 = 'probability' # Значение вероятности с которым фото было распознано.
 
   for key in final_dict: # Цикл для сепарации ключа и значения
       print(key, final_dict[key])
