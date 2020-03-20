@@ -144,23 +144,28 @@ if __name__ == "__main__":
     flowers = labels[i]
     probability = results[i]
     dictionary_list[flowers] = probability # Добавляем i-й елимент в словарь.
-    
+  
+  zerg_array = str(dictionary_list) # Полный словарь
+  print(zerg_array)
   final_dict = dict([max(dictionary_list.items(), key=lambda k_v: k_v[1])]) # Финальный словарь с максимальным значением ключа
   #print("Результат максимального значения - ",final_dict)
   ip_mojordomo = '192.168.18.12' # Здесь прописываем "IP" MajoDomo
   name_of_object = 'flowers' # Здесь прописываем имя объекта в который пропишем результат
-  property_of_object_1 = 'name' # Здесь прописываем свойство объекта в который пропишется имя класса
-  property_of_object_2 = 'probability' # Здесь прописываем свойство объекта в который пропишется значение вероятности
+  property_of_object_1 = 'array' # Массив данных полученных из нейросети.
+  property_of_object_2 = 'name' # Имя распознанного объекта
+  property_of_object_3 = 'probability' # Значение вероятности с которым фото было расспознано.
 
   for key in final_dict: # Цикл для сепарации ключ и значения
       print(key, final_dict[key])
-  flovers_tipe = key # Сохраняем значение ключа
+  zerg_tipe = key # Сохраняем значение ключа
   #print ("Тип цветка - ", flovers_tipe)
-  probability = str(final_dict[key]) # Значение вероятности прогноза
+  zerg_probability = str(final_dict[key]) # Значение вероятности прогноза
   #print ("Значение вероятности = ", probability)
 
   #link="http://192.168.18.12/objects/?op=set&object=flowers&p=name&v=" + data
-  link="http://"+ip_mojordomo+"/objects/?op=set&object=" +name_of_object+ '&p='+property_of_object_1+'&v=' + flovers_tipe
+  #link="http://"+ip_mojordomo+"/objects/?op=set&object=" +name_of_object+ '&p='+property_of_object_1+'&v=' + zerg_array
+  #f=urllib.request.urlopen(link)
+  link="http://"+ip_mojordomo+"/objects/?op=set&object=" +name_of_object+ '&p='+property_of_object_2+'&v=' + zerg_tipe
   f=urllib.request.urlopen(link)
-  link="http://"+ip_mojordomo+"/objects/?op=set&object=" +name_of_object+ '&p='+property_of_object_2+'&v=' + probability
+  link="http://"+ip_mojordomo+"/objects/?op=set&object=" +name_of_object+ '&p='+property_of_object_3+'&v=' + zerg_probability
   f=urllib.request.urlopen(link)
